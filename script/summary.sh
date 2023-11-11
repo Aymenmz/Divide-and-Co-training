@@ -78,7 +78,7 @@ is_lukemelas_efficientnet=1
 is_efficientnet_user_crop=1
 
 # train the model
-python ${work_dir}/train_split_1.py 	--dist_url 'tcp://127.0.0.1:6791' \
+python ${work_dir}/train_split_cpu.py 	--dist_url 'tcp://127.0.0.1:6791' \
 									--multiprocessing_distributed \
 									--world_size 1 \
 									--rank 0 \

@@ -94,7 +94,7 @@ is_wd_all=0
 
 
 # evaluate the model
-python ../train_split_1.py 	--dist_url 'tcp://127.0.0.1:6000' \
+python ../train_split_cpu.py 	--dist_url 'tcp://127.0.0.1:6000' \
 									--multiprocessing_distributed \
 									--world_size 1  \
 									--rank 0 \
