@@ -29,7 +29,7 @@ case ${dataset_choose} in
 		dataset='cifar10'
 		crop_size=32
 		batch_size=128
-		epochs=300
+		epochs=10
 		;;
 	1 ) 
 		dataset='cifar100'
@@ -56,11 +56,11 @@ case ${dataset_choose} in
 		;;
 esac
 
-if [[ ${dataset} == 'imagenet' ]]; then
-	echo ""
-	echo -n "input the crop_size: "
-	read crop_size
-fi
+# if [[ ${dataset} == 'imagenet' ]]; then
+# 	echo ""
+# 	echo -n "input the crop_size: "
+# 	read crop_size
+# fi
 
 # choose the arch
 echo ""
@@ -71,14 +71,14 @@ echo -n "choose the split factor (1, 2, 4): "
 read split_factor
 
 # set the work dir
-work_dir="${HOME}/github/splitnet"
+work_dir="../"
 is_apex_amp=0
 is_official_densenet=1
 is_lukemelas_efficientnet=1
 is_efficientnet_user_crop=1
 
 # train the model
-python ${work_dir}/train_split.py 	--dist_url 'tcp://127.0.0.1:6791' \
+python ${work_dir}/train_split_1.py 	--dist_url 'tcp://127.0.0.1:6791' \
 									--multiprocessing_distributed \
 									--world_size 1 \
 									--rank 0 \

@@ -11,17 +11,20 @@ read dir_choose
 echo ""
 echo -n "input the port:"
 read port
+logdir="../model/se_resnet50_B_split1___07" 
 
 # set the logdir
-case ${dir_choose} in
-	1 )
-		logdir="${HOME}/models/splitnet"
-		;;
-	* )
-		echo "The choice of thedirectory is illegal!"
-		exit 1
-		;;
-esac
+# case ${dir_choose} in
+# 	1 )
+# 		logdir="/workspace/models"
+# 		;;
+# 	* )
+# 		echo "The choice of the directory is illegal!" se_resnet50_B_split1___07 http://172.17.0.2/
+# 		exit 1
+# 		;;
+# esac
+
+# docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_id 74a3186c073b
 
 
 # sleep time, hours

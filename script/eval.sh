@@ -8,7 +8,7 @@ read gpus
 export CUDA_VISIBLE_DEVICES=${gpus}
 echo "using gpus ${gpus}"
 
-data_dir=${HOME}
+data_dir="/workspace/dataset"
 
 # choose the dataset
 echo ""
@@ -91,16 +91,13 @@ norm_mode="batch"
 is_amp=1
 is_wd_all=0
 
-# set the work dir
-work_dir="${HOME}/github/splitnet"
+
 
 # evaluate the model
-python ${work_dir}/train_split.py 	--dist_url 'tcp://127.0.0.1:6000' \
+python ../train_split_1.py 	--dist_url 'tcp://127.0.0.1:6000' \
 									--multiprocessing_distributed \
-									--world_size 1 \
-									--epochs 100 \
+									--world_size 1  \
 									--rank 0 \
-									--gpu_ids ${gpus} \
 									--data ${data} \
 									--dataset ${dataset} \
 									--model_dir ${model_dir} \
